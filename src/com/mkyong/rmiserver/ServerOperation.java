@@ -19,6 +19,31 @@ public class ServerOperation extends UnicastRemoteObject implements RMIInterface
 		return "Servidor diz olá para " + name;
 	}
 	
+	@Override
+	public double add(int x, int y) throws RemoteException{
+		return x + y;
+	}
+	
+	@Override
+	public double sub(int x, int y) throws RemoteException{
+		return x - y;
+	}
+	
+	@Override
+	public double mul(int x, int y) throws RemoteException{
+		return x * y;
+	}
+	
+	@Override
+	public double div(int x, int y) throws RemoteException{
+		return x / y;
+	}
+	
+	@Override
+	public double exp(int x, int y) throws RemoteException{
+		return Math.pow(x, y);
+	}
+	
 	public static void main(String[] args){
 		try {
 			Naming.rebind("//localhost/MyServer", new ServerOperation());            
